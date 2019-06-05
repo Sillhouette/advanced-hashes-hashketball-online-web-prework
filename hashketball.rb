@@ -1,5 +1,5 @@
-# Write your code here!
 require 'pry'
+
 def game_hash
   {
     :home => {
@@ -124,8 +124,8 @@ def num_points_scored(player_name)
       if data_key == :players
         data_value.each do |current_player_name, player_stats|
           if player_name == current_player_name
-            player_stats.each do |stat, value|
-              result = value if stat == :points
+            player_stats.each do |player_stat, value|
+              result = value if player_stat == :points
             end
           end
         end
@@ -170,7 +170,7 @@ def rebounds(player_name)
 end
 
 def team_colors(team_name)
-  result = []
+  result = ''
   game_hash().each do |location, team_data|
     if team_data[:team_name] == team_name
       result = team_data[:colors]
